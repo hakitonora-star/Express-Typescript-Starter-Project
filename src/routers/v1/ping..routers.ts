@@ -1,11 +1,12 @@
 import express, { NextFunction,Request,Response }  from "express";
-import { pingHandler } from "../controllers/ping.controller";
+import { pingHandler } from "../../controllers/ping.controller";
 
 // export function createPingRouter(app:Express){
 //     app.get('/ping',pingHandler)
 
 // }
 const pingRouter=express.Router();
+/*
 function middleware1(req:Request,res:Response,next:NextFunction){
     console.log('Middleware 1');
     next();//call the next middleware
@@ -21,4 +22,9 @@ function middleware3(req:Request,res:Response,next:NextFunction){
 
 
 pingRouter.get('/ping',middleware1,middleware2,middleware3,pingHandler);// middleware1------>middleware2------>pingHandler
+*/
+pingRouter.get('/',pingHandler);
+pingRouter.get('/health',(req,res)=>{
+    res.status(200).send('OK');
+})
 export default pingRouter;
