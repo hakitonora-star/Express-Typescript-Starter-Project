@@ -1,0 +1,22 @@
+WHENEVER we use register a  router  we use use 
+means jab hume router to call krna hai toh use ka use krnege jab main controller pe krna hai toh get deltete api request ka use krenege
+
+for only start and test command you have to write npm start etc but for any other command we have use run examplw:npm run dev
+#packages need to installed
+npm init -y
+npm install express
+npm install -D typescript
+npm install -D @types/node
+npm install -D @types/express
+npm install -D nodemon
+npm install -D tsx
+npm install dotenv
+npx tsc --init
+"start": "ts-node src/server.ts",
+"dev": "nodemon src/server.ts"
+
+for validation library
+-->npm i zod
+
+
+
