@@ -18,5 +18,7 @@ npx tsc --init
 for validation library
 -->npm i zod
 
+// validatemiddleware---->controller--->errorMiddleware 
+https://expressjs.com/en/5x/guide/error-handling/
 
 

@@ -1,10 +1,26 @@
 import { Request, Response, NextFunction } from "express";
-import { z } from "zod";
+import {z } from "zod";
 
 
 const validateRequestBody = (schema: z.ZodType) => {
     return async (req: Request, res: Response, next: NextFunction) => {
+       /*
+       Why are we returning another function?
+        Why?
+Because Express middleware must look like:
+(req, res, next) => {
+    ...
+}
+
+So:
+validateRequestBody(pingSchema)
+
+produces an Express middleware function.
+Think:
+*/
         try {
+            //parseAsync()
+// For validation that may involve asynchronous operations:
             await schema.parseAsync(req.body);
 
             console.log("Request Body is valid");

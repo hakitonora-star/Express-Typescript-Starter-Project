@@ -24,13 +24,13 @@ app.listen(serverConfig.PORT,()=>{
     console.log(`press Ctrl+C to stop the server !`);
     //we are access the environment variable in node js code using node js global
     // console.log(process.env.SERVER_NAME)
-    const obj={
-        name:"sanket",
-        age:27
-    } // object that i want  to test
-    const objSchema=z.object({
-        name:z.string(),
-        age:z.number().int().positive()
-     })
-     console.log(objSchema.parse(obj));
+    // const obj={
+    //     name:"sanket",
+    //     age:27
+    // } // object that i want  to test
+    // const objSchema=z.object({
+    //     name:z.string(),
+    //     age:z.number().int().positive()
+    //  })
+    //  console.log(objSchema.parse(obj));
 });
