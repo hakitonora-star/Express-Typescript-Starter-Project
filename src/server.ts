@@ -5,6 +5,7 @@ import pingRouter from './routers/v1/ping..routers';
 import v1Router from './routers/v1/index.router';
 import v2Router from './routers/v2/index.router';
 import { z } from 'zod';
+import { genericErrorHandler } from './middleware/error.middleware';
 const app=express();
 app.use(express.json()); // for JSON
 // app.use(express.text()); // for plain text
@@ -16,7 +17,9 @@ app.use(express.json()); // for JSON
  */
 // app.use('/ping',pingRouter); // whenever /ping request comes we rout or call ping router
 app.use(`/api/v1`,v1Router);
-app.use(`/api/v2`,v2Router)
+app.use(`/api/v2`,v2Router);
+// add the error handler middleware
+app.use(genericErrorHandler);
 
 console.log(`Environment variables loaded`)
 app.listen(serverConfig.PORT,()=>{
