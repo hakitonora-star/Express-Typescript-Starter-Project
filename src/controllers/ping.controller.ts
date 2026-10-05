@@ -2,9 +2,11 @@ import { NextFunction, Request,Response } from "express"
 import { success } from "zod"
 import fs from "fs/promises";
 import { AppError, NotFoundError } from "../utils/errors/app.error";
+import logger from "../config/logger.config";
 
 // express automaticaly injects one extra middleware after complete middleware chain which is default error middleware
 /*
+
 export const pingHandler=async(req:Request,res:Response,next:NextFunction): Promise<void>=>{
     // console.log("request body",req.body); // it means whatever data we send when request through json 
     // console.log("query params",req.query);
@@ -28,7 +30,7 @@ export const pingHandler=async(req:Request,res:Response,next:NextFunction): Prom
     // });
 
 }
-    */
+    
 
 export const pingHandler=async(req:Request,res:Response,next:NextFunction): Promise<void>=>{
     try {
@@ -41,3 +43,10 @@ export const pingHandler=async(req:Request,res:Response,next:NextFunction): Prom
 }
 
 
+*/
+export const pingHandler=(req:Request,res:Response,next:NextFunction): void=>{
+     logger.info("Ping request received", {
+    correlationId: req.headers["x-correlation-id"]
+});
+    res.status(200).json({message:"Pong!"});
+}

@@ -6,6 +6,8 @@ import v1Router from './routers/v1/index.router';
 import v2Router from './routers/v2/index.router';
 import { z } from 'zod';
 import { genericErrorHandler } from './middleware/error.middleware';
+import logger from './config/logger.config';
+import { AttachCorrelationIdMiddleware } from './middleware/correlation.middleware';
 const app=express();
 app.use(express.json()); // for JSON
 // app.use(express.text()); // for plain text
@@ -16,6 +18,7 @@ app.use(express.json()); // for JSON
  * Registering all the routers and their corresponding routes without app server object
  */
 // app.use('/ping',pingRouter); // whenever /ping request comes we rout or call ping router
+app.use(AttachCorrelationIdMiddleware);
 app.use(`/api/v1`,v1Router);
 app.use(`/api/v2`,v2Router);
 // add the error handler middleware
@@ -24,7 +27,7 @@ app.use(genericErrorHandler);
 console.log(`Environment variables loaded`)
 app.listen(serverConfig.PORT,()=>{
     console.log(`Server is running on http://localhost:${serverConfig.PORT}`);
-    console.log(`press Ctrl+C to stop the server !`);
+logger.info("press Ctrl+C to stop the server!",{ name: "dev server",});
     //we are access the environment variable in node js code using node js global
     // console.log(process.env.SERVER_NAME)
     // const obj={
