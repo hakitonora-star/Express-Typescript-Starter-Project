@@ -7,6 +7,8 @@ const v2Router=express.Router();
  * it wqill contain all the routes for v2 API
  * @module routers/v2/index.router
  */
-
+v2Router.get('/',(req, res) => {
+    res.status(200).send('fine');
+})
 
 export default v2Router;
