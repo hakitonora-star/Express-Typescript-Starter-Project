@@ -3,7 +3,7 @@ import {serverConfig} from './config';
 import { pingHandler } from './controllers/ping.controller';
 import pingRouter from './routers/v1/ping..routers';
 import v1Router from './routers/v1/index.router';
-import v2Router from './routers/v2/index.router';
+import v3Router from './routers/v3/index.router';
 import { z } from 'zod';
 import { genericErrorHandler } from './middleware/error.middleware';
 import logger from './config/logger.config';
@@ -20,7 +20,7 @@ app.use(express.json()); // for JSON
 // app.use('/ping',pingRouter); // whenever /ping request comes we rout or call ping router
 app.use(AttachCorrelationIdMiddleware);
 app.use(`/api/v1`,v1Router);
-app.use(`/api/v2`,v2Router);
+app.use(`/api/v2`,v3Router);
 // add the error handler middleware
 app.use(genericErrorHandler);
 
