@@ -6,7 +6,7 @@ type ServerConfig={
 
 function loadEnv(){
 dotenv.config();
-console.log("enviromnet variable loading");
+console.log("enviromnet variable loading.....");
 }
 loadEnv();
 
