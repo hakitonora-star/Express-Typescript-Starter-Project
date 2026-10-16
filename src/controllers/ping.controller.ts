@@ -45,7 +45,7 @@ export const pingHandler=async(req:Request,res:Response,next:NextFunction): Prom
 
 */
 export const pingHandler=(req:Request,res:Response,next:NextFunction): void=>{
-     logger.info("Ping request received", {
+     logger.info("Pong request received", {
     correlationId: req.headers["x-correlation-id"]
 });
     res.status(200).json({message:"Pong!"});
