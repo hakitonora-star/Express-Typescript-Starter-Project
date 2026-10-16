@@ -48,5 +48,5 @@ export const pingHandler=(req:Request,res:Response,next:NextFunction): void=>{
      logger.info("Pong request received", {
     correlationId: req.headers["x-correlation-id"]
 });
-    res.status(200).json({message:"Pong!"});
+    res.status(200).json({message:"Ping!"});
 }
