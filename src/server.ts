@@ -27,7 +27,7 @@ app.use(genericErrorHandler);
 console.log(`Environment variables loaded`)
 app.listen(serverConfig.PORT,()=>{
     console.log(`Server is running on http://localhost:${serverConfig.PORT}`);
-logger.info("press Ctrl+C to stop the server!",{ name: "dev server",});
+logger.info("ENTER Ctrl+C to stop the server!!",{ name: "dev server",});
     //we are access the environment variable in node js code using node js global
     // console.log(process.env.SERVER_NAME)
     // const obj={
