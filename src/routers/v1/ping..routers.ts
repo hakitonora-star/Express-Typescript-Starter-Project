@@ -41,7 +41,7 @@ pingRouter.get('/ping',middleware1,middleware2,middleware3,pingHandler);// middl
 pingRouter.get("/",validateRequestBody(pingSchema),pingHandler);
 
 pingRouter.get('/health',(req,res)=>{
-    res.status(200).send('OK');
+    res.status(200).send('OKkkkk');
 })
 export default pingRouter;
 

@@ -44,7 +44,7 @@ export const validateQueryParams=(schema:z.ZodType)=>{
             next();
         } catch (error) {
             return res.status(400).json({
-                message: "Invalid quesry  param",
+                message: "Invalid query  param",
                 error: error
             });
         }
